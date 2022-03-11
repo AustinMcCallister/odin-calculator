@@ -16,3 +16,13 @@ body {
 body {
   background-color: #D8DEE9;
 }
+
+.header {
+  color: #2E3440;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
