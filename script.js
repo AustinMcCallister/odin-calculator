@@ -1,4 +1,5 @@
 let display = null;
+let history = '';
 let firstInput = null;
 let secondInput = null;
 let operator = null;
@@ -78,10 +79,13 @@ function operateButton(button) {
         firstInput = display;
         operator = null;
         display = null;
+        history = '';
+        updateHistory();
       }
     }
     else {
       operator = button.target.textContent;
+      updateHistory(operator, firstInput);
       display = null;
     }
   }
@@ -90,4 +94,9 @@ function operateButton(button) {
 function updateDisplay(display) {
   const output = document.querySelector('.output');
   output.textContent = Math.round(display * 100) / 100;
+}
+
+function updateHistory(operator = '', firstInput = '', secondInput = '') {
+  const outputHistory = document.querySelector('.calculation');
+  outputHistory.textContent = `${firstInput} ${operator} ${secondInput}`;
 }
