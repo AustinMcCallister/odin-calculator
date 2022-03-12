@@ -134,3 +134,26 @@ clearButton.addEventListener('click', () => {
   updateDisplay(0);
   updateHistory();
 });
+
+const deleteButton = document.querySelector('.delete');
+deleteButton.addEventListener('click', () => {
+  if (display != null) {
+    display = display.slice(0, -1);
+    if (secondInput == null) {
+      firstInput = display;
+    }
+    else {
+      secondInput = display;
+    }
+    console.log('First Input: ' + firstInput);
+    console.log('Second Input: ' + secondInput);
+    console.log('Display: ' + display);
+    if (display == '') {
+      display = null;
+      updateDisplay(0);
+    }
+    else {
+      updateDisplay(display);
+    }
+  }
+});
