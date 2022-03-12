@@ -32,7 +32,7 @@ function operate(operator, a, b = 0) {
   }
   else if (operator === '÷') {
     if (b == 0) {
-      return 0;
+      return NaN;
     }
     else {
       return divide(a, b);
@@ -47,7 +47,7 @@ buttons.forEach((button) => {
 
 function operateButton(button) {
   if (button.target.classList.contains('number')) {
-    if (display == null) { // 'Blank' display
+    if (display == null || display == NaN) { // 'Blank' display
       if (button.target.id == 'decimal') {
 
       }
@@ -58,7 +58,7 @@ function operateButton(button) {
     else if (button.target.id == 'decimal') {
 
     }
-    else if (display.length < 6) {
+    else if (display.length < 12) {
       display += button.target.textContent;
     }
     if (operator == null) {
@@ -75,6 +75,7 @@ function operateButton(button) {
         display = operate(operator, firstInput, secondInput);
         updateDisplay(display);
         firstInput = display;
+        secondInput = null;
         operator = null;
         display = null;
         history = '';
@@ -82,6 +83,16 @@ function operateButton(button) {
       }
     }
     else {
+      if (firstInput == null) {
+        firstInput = 0;
+      }
+      else if (secondInput != null) {
+        secondInput = display;
+        display = operate(operator, firstInput, secondInput);
+        updateDisplay(display);
+        firstInput = display;
+        secondInput = null;
+      }
       operator = button.target.textContent;
       updateHistory(operator, firstInput);
       display = null;
