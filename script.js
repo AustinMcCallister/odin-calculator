@@ -71,10 +71,8 @@ function operateButton(button) {
   }
   else if (button.target.classList.contains('operator')) {
     if (button.target.id == 'equals') {
-      console.log('firstInput: ' + firstInput + ', secondInput: ' + secondInput + ', operator: ' + operator);
       if (firstInput != null && operator != null) {
         display = operate(operator, firstInput, secondInput);
-        console.log('Output: ' + display);
         updateDisplay(display);
         firstInput = display;
         operator = null;
@@ -93,7 +91,13 @@ function operateButton(button) {
 
 function updateDisplay(display) {
   const output = document.querySelector('.output');
-  output.textContent = Math.round(display * 100) / 100;
+  if (display.toString().length > 12) {
+    display = Number.parseFloat(display).toExponential(5);
+    output.textContent = display;
+  }
+  else {
+    output.textContent = Math.round(display * 100) / 100;
+  }
 }
 
 function updateHistory(operator = '', firstInput = '', secondInput = '') {
