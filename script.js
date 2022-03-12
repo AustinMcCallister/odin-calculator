@@ -31,7 +31,7 @@ function operate(operator, a, b = 0) {
     return multiply(a, b);
   }
   else if (operator === '÷') {
-    if (b == 0) {
+    if (b == 0 || b == null) {
       return NaN;
     }
     else {
@@ -197,6 +197,7 @@ document.onkeydown = (e) => {
       document.getElementById('multiply').click();
       break;
     case '/':
+      e.preventDefault();
       document.getElementById('divide').click();
       break;
     case '.':
