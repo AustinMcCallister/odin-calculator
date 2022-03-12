@@ -31,13 +31,13 @@ body {
 
 .header {
   color: #2E3440;
-  font-size: 32px;
+  font-size: 2em;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px;
-  padding-bottom: 64px;
+  padding: 0.75em;
+  padding-bottom: 2em;
 }
 
 .section-one {
@@ -45,7 +45,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  margin-bottom: 128px;
+  margin-bottom: 8em;
 }
 
 .display {
@@ -55,9 +55,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  border: solid 2px #2E3440;
-  border-radius: 4px;
-  padding: 20px;
+  border: solid 0.125em #2E3440;
+  border-radius: 0.25em;
+  padding: 1.25em;
 }
 
 .calculation,
@@ -68,36 +68,36 @@ body {
 }
 
 .calculation {
-  font-size: 16px;
-  height: 23px;
+  font-size: 1em;
+  height: 1.4375em;
 }
 
 .output {
   display: flex;
   justify-content: flex-end;
-  font-size: 48px;
+  font-size: 3em;
 }
 
 .reset {
   display: grid;
-  gap: 8px;
+  gap: 0.5em;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  padding: 8px 0px;
-  margin-top: 8px;
+  padding: 0.5em 0;
+  margin-top: 0.5em;
 }
 
 .clear,
 .delete {
   color: #2E3440;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 2px #2E3440;
-  border-radius: 4px;
-  padding: 20px;
+  border: solid 0.125em #2E3440;
+  border-radius: 0.25em;
+  padding: 1.25em;
 }
 
 .clear {
@@ -126,7 +126,7 @@ body {
 
 .buttons {
   display: grid;
-  gap: 8px;
+  gap: 0.5em;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
 }
@@ -134,14 +134,14 @@ body {
 .button {
   color: #2E3440;
   background-color: #D8DEE9;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 2px #2E3440;
-  border-radius: 4px;
-  padding: 20px;
+  border: solid 0.125em #2E3440;
+  border-radius: 0.25em;
+  padding: 1.25em;
 }
 
 .button:hover {
@@ -154,23 +154,23 @@ body {
 
 .calculator-body {
   background-color: #4C566A;
-  width: 400px;
-  height: 550px;
+  width: 25em;
+  height: 34.375em;
   display:flex;
   flex-direction: column;
-  border: solid 2px #2E3440;
-  border-radius: 16px;
-  box-shadow: 0 0 10px #2E3440;
-  padding: 16px;
+  border: solid 0.125em #2E3440;
+  border-radius: 1em;
+  box-shadow: 0 0 0.625em #2E3440;
+  padding: 1em;
 }
 
 .footer {
   color: #E5E7EB;
   background-color: #2E3440;
   display: flex;
-  font-size: 18px;
-  padding: 16px;
-  margin-top: 32px;
+  font-size: 1.125em;
+  padding: 0.8888888888888888em;
+  margin-top: 1.7777777777777777em;
   width: 100%;
   justify-content: center;
   align-items: center;
