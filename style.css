@@ -37,7 +37,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 24px;
-  padding-bottom: 36px;
+  padding-bottom: 64px;
 }
 
 .section-one {
@@ -45,6 +45,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  margin-bottom: 128px;
 }
 
 .display {
@@ -54,6 +55,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  gap: 5px;
   border: solid 2px #2E3440;
   border-radius: 4px;
   padding: 20px;
