@@ -49,6 +49,7 @@ function operateButton(button) {
   if (button.target.classList.contains('number')) {
     if (display == null || display == NaN) { // 'Blank' display
       if (button.target.id == 'decimal') {
+        display = 0 + button.target.textContent;
 
       }
       else {
@@ -56,7 +57,9 @@ function operateButton(button) {
       }
     }
     else if (button.target.id == 'decimal') {
-
+      if (!display.includes('.')) {
+        display += button.target.textContent;
+      }
     }
     else if (display.length < 12) {
       display += button.target.textContent;
@@ -73,7 +76,7 @@ function operateButton(button) {
     if (button.target.id == 'equals') {
       if (firstInput != null && operator != null) {
         display = operate(operator, firstInput, secondInput);
-        updateDisplay(display);
+        updateDisplay(display, true);
         firstInput = display;
         secondInput = null;
         operator = null;
@@ -89,7 +92,7 @@ function operateButton(button) {
       else if (secondInput != null) {
         secondInput = display;
         display = operate(operator, firstInput, secondInput);
-        updateDisplay(display);
+        updateDisplay(display, true);
         firstInput = display;
         secondInput = null;
       }
@@ -100,14 +103,19 @@ function operateButton(button) {
   }
 }
 
-function updateDisplay(display) {
+function updateDisplay(display, round = false) {
   const output = document.querySelector('.output');
   if (display.toString().length > 12) {
     display = Number.parseFloat(display).toExponential(5);
     output.textContent = display;
   }
   else {
-    output.textContent = Math.round(display * 100) / 100;
+    if (round) {
+      output.textContent = Math.round(display * 10000) / 10000; // Four decimal places
+    }
+    else {
+      output.textContent = display;
+    }
   }
 }
 
