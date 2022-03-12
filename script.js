@@ -100,3 +100,14 @@ function updateHistory(operator = '', firstInput = '', secondInput = '') {
   const outputHistory = document.querySelector('.calculation');
   outputHistory.textContent = `${firstInput} ${operator} ${secondInput}`;
 }
+
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+  display = null;
+  history = '';
+  firstInput = null;
+  secondInput = null;
+  operator = null;
+  updateDisplay(0);
+  updateHistory();
+});
