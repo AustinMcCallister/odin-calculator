@@ -147,10 +147,20 @@ deleteButton.addEventListener('click', () => {
   if (display != null) {
     display = display.slice(0, -1);
     if (secondInput == null) {
-      firstInput = display;
+      if (display == '') {
+        firstInput = null;
+      }
+      else {
+        firstInput = display;
+      }
     }
     else {
-      secondInput = display;
+      if (display == '') {
+        secondInput = null;
+      }
+      else {
+        secondInput = display;
+      }
     }
     // Replaces the initial 0 for 'blank' screen
     if (display == '') {
