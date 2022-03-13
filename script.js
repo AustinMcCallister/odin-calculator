@@ -31,6 +31,7 @@ function operate(operator, a, b = 0) {
     return multiply(a, b);
   }
   else if (operator === '÷') {
+    // Division by zero
     if (b == 0 || b == null) {
       return NaN;
     }
@@ -47,20 +48,24 @@ buttons.forEach((button) => {
 
 function operateButton(button) {
   if (button.target.classList.contains('number')) {
-    if (display == null || display == NaN) { // 'Blank' display
+    // 'Blank' display
+    if (display == null || display == NaN) {
       if (button.target.id == 'decimal') {
+        // Keep leading zero for decimal input
         display = 0 + button.target.textContent;
-
       }
       else {
+        // Otherwise, remove leading zero
         display = button.target.textContent;
       }
     }
     else if (button.target.id == 'decimal') {
+      // Prevent multiple decimals
       if (!display.includes('.')) {
         display += button.target.textContent;
       }
     }
+    // Keep output from overflowing display
     else if (display.length < 12) {
       display += button.target.textContent;
     }
@@ -86,9 +91,11 @@ function operateButton(button) {
       }
     }
     else {
+      // If operator is pressed before number
       if (firstInput == null) {
         firstInput = 0;
       }
+      // Chaining operators
       else if (secondInput != null) {
         secondInput = display;
         display = operate(operator, firstInput, secondInput);
@@ -145,6 +152,7 @@ deleteButton.addEventListener('click', () => {
     else {
       secondInput = display;
     }
+    // Replaces the initial 0 for 'blank' screen
     if (display == '') {
       display = null;
       updateDisplay(0);
